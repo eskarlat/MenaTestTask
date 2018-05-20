@@ -56,6 +56,165 @@
                         <div class="card border-light mb-10">
                             <div class="card-header"><a name="getAllPost">Get all posts</a></div>
                             <div class="card-body">
+                                <code>GET /api/posts</code>
+                                <p class="card-text">This method returns all post from datebase.</p>
+                                <h5 class="card-title">Example answer</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <pre>{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "title": "Ut est molestiae excepturi consequatur.",
+      "short_description": "Quaerat officia necessitatibus deserunt eum sed labore. Sunt minima sed repellendus quod dolores deleniti atque.",
+      "text": "Voluptatibus ut consequuntur non alias quibusdam assumenda molestiae qui. Delectus aspernatur autem quaerat optio.",
+      "created_at": "2016-09-20 22:33:42",
+      "updated_at": "2018-05-20 12:49:34"
+    },
+    {
+      "id": 2,
+      "title": "Amet totam corporis molestiae sit.",
+      "short_description": "In cumque ut iusto et. Voluptas et earum nisi eos qui vel. Voluptatum quod blanditiis facere officiis architecto neque.",
+      "text": "Commodi voluptatem architecto explicabo hic omnis impedit expedita molestiae. Et quia commodi aut molestiae. Voluptatibus non consequatur dolores animi consequatur et. Rerum eum dignissimos illo.",
+      "created_at": "2013-03-27 09:21:52",
+      "updated_at": "2018-05-20 12:49:34"
+    }
+}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-light mb-10">
+                            <div class="card-header"><a name="getPost">Get post</a></div>
+                            <div class="card-body">
+                                <code>GET /api/posts/{id}</code>
+                                <p class="card-text">This method returns definite post compare to id.</p>
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>id</td>
+                                        <td>integer</td>
+                                        <td>yes</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <h5 class="card-title">Example answer</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                       <pre>
+{
+  "status": "success",
+  "data": {
+    "id": 1,
+    "title": "Ut est molestiae excepturi consequatur.",
+    "short_description": "Quaerat officia necessitatibus deserunt eum sed labore. Sunt minima sed repellendus quod dolores deleniti atque.",
+    "text": "Voluptatibus ut consequuntur non alias quibusdam assumenda molestiae qui. Delectus aspernatur autem quaerat optio.",
+    "created_at": "2016-09-20 22:33:42",
+    "updated_at": "2018-05-20 12:49:34"
+  }
+}
+</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-light mb-10">
+                            <div class="card-header"><a name="createNewPost">Create new post</a></div>
+                            <div class="card-body">
+                                <code>POST /api/posts</code>
+                                <p class="card-text">This method returns definite post compare to id.</p>
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>title</td>
+                                        <td>string</td>
+                                        <td>yes</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>short_description</td>
+                                        <td>string</td>
+                                        <td>yes</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>text</td>
+                                        <td>string</td>
+                                        <td>yes</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <h5 class="card-title">Example request</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                       <pre>
+{
+    "title": "STORE Ut est molestiae excepturi consequatur.",
+    "short_description": "Quaerat officia necessitatibus deserunt eum sed labore. Sunt minima sed repellendus quod dolores deleniti atque.",
+    "text": "Voluptatibus ut consequuntur non alias quibusdam assumenda molestiae qui. Delectus aspernatur autem quaerat optio."
+}
+</pre>
+                                    </div>
+                                </div>
+                                <h5 class="card-title">Example answer</h5>
+                                <div class="card">
+                                    <div class="card-body">
+                                       <pre>
+{
+    "status": "success",
+    "data": {
+        "id": 24,
+        "title": "STORE Ut est molestiae excepturi consequatur.",
+        "short_description": "Quaerat officia necessitatibus deserunt eum sed labore. Sunt minima sed repellendus quod dolores deleniti atque.",
+        "text": "Voluptatibus ut consequuntur non alias quibusdam assumenda molestiae qui. Delectus aspernatur autem quaerat optio.",
+        "created_at": "2018-05-20 18:30:02",
+        "updated_at": "2018-05-20 18:35:00"
+    }
+}
+</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-light mb-10">
+                            <div class="card-header"><a name="updatePost">Update post</a></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Light card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card border-light mb-10">
+                            <div class="card-header"><a name="deletePost">Delete post</a></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Light card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card border-light mb-10">
+                            <div class="card-header"><a name="sort">Sortable</a></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Light card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <h5 class="card-title">Request parameters</h5>
                                 <table class="table">
@@ -88,77 +247,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <h5 class="card-title">Example request</h5>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <pre>{
-    "version": "1.0",
-    "data": {
-        "sampleArray": [
-            "string value",
-            5,
-            {
-                "name": "sub object"
-            }
-        ]
-    }
-}</pre>
-                                    </div>
-                                </div>
-                                <h5 class="card-title">Example answer</h5>
-                                <div class="card">
-                                    <div class="card-body">
-                                       <pre>
-{
-    "version": "1.0",
-    "data": {
-        "sampleArray": [
-            "string value",
-            5,
-            {
-                "name": "sub object"
-            }
-        ]
-    }
-}
-</pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card border-light mb-10">
-                            <div class="card-header"><a name="getPost">Get post</a></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card border-light mb-10">
-                            <div class="card-header"><a name="createNewPost">Create new post</a></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card border-light mb-10">
-                            <div class="card-header"><a name="updatePost">Update post</a></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card border-light mb-10">
-                            <div class="card-header"><a name="deletePost">Delete post</a></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card border-light mb-10">
-                            <div class="card-header"><a name="sort">Sortable</a></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                         <div class="card border-light mb-10">
