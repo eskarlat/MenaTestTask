@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Mockery\Exception;
 
@@ -13,15 +14,35 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try{
-            $posts = Post::all();
+
+            $posts = DB::table('posts');
+            $sort = $request->has('sort') ? $request->sort : 'desc';
+
+            if ($request->has('title')) {
+                $posts = $posts->where('title', 'like', "%$request->title%");
+            }
+
+            if ($request->has('date')) {
+                $posts = $posts->whereDate('created_at', $request->date);
+            }
+
+            if ($request->has('order_title')) {
+                $posts = $posts->orderBy('title', $sort);
+            }
+
+            if ($request->has('order_date')) {
+                $posts = $posts->orderBy('created_at', $sort);
+            }
+
             return response([
                 'status' => 'success',
-                'data' => $posts
+                'data' => $posts->get()
             ], 200);
         }catch(\Exception $e) {
             return response([
@@ -73,7 +94,7 @@ class PostController extends Controller
     public function show($id)
     {
         try{
-            $post = Post::findorFail($id);
+            $post = Post::findOrFail($id);
             return response([
                 'status' => 'success',
                 'data' => $post
@@ -130,7 +151,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         try{
-            $post = Post::findorFail($id);
+            $post = Post::findOrFail($id);
             $post->delete();
             return response([
                 'status' => 'success'
